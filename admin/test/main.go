@@ -42,10 +42,10 @@ func main() {
 	//	panic(err)
 	//}
 	//fmt.Println(deleteResult)
-	uploadRequest, err := clientset.File().Upload()
-	if err != nil {
-		panic(err)
-	}
+	//uploadRequest, err := clientset.File().Upload()
+	//if err != nil {
+	//	panic(err)
+	//}
 	//stream, err := uploadRequest.Stream()
 	//if err != nil {
 	//	panic(err)

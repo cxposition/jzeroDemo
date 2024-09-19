@@ -48,6 +48,9 @@ func start(svcCtx *svc.ServiceContext) {
 	server := rest.MustNewServer(svcCtx.Config.Rest.RestConf)
 	middleware.Register(server)
 
+	// 使中间件生效
+	server.Use(middleware.NewOperationLogMiddleware(svcCtx.LogLogic).Handle)
+
 	// server add api handlers
 	handler.RegisterHandlers(server, svcCtx)
 
