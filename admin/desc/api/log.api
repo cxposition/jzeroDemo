@@ -1,0 +1,15 @@
+syntax = "v1"
+
+type OperateLogger {
+	uuid        string `json:"uuid"`
+	operator    string `json:"operator"` // 管理员账号
+	ipaddr      string `json:"ipaddr"` // ip 地址
+	actions     string `json:"actions"`
+	contents    string `json:"contents"`
+	status      int    `json:"status"`
+	createTime  int    `json:"createTime"`
+	eventType   int    `json:"eventType"`
+	eventLevel  int    `json:"eventLevel"`
+	auditStatus int    `json:"auditStatus"`
+}
+

@@ -1,0 +1,18 @@
+rest:
+    name: user-api
+    host: 0.0.0.0
+    port: 8001
+
+log:
+    encoding: plain
+
+# 选择数据库类型
+dataBaseType: mysql
+
+# mysql 数据源配置
+mysql:
+    path: "127.0.0.1"
+    port: 3306
+    username: "root"
+    password: "cx971112"
+    dbname: "test"

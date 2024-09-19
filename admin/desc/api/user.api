@@ -1,0 +1,60 @@
+syntax = "v1"
+
+type User {
+	id   int    `json:"id"`
+	name string `json:"name"`
+}
+
+type ListUserRequest {
+	page int `form:"page"` // 第几页
+	size int `form:"size"` // 每页数量
+}
+
+type ListUserResponse {
+	list  []User `json:"list"`
+	total int    `json:"total"`
+}
+
+type AddUserRequest {
+	name string `json:"name"`
+}
+
+type AddUserResponse {
+	status int `json:"status"`
+}
+
+type DeleteUserRequest {
+	id int `json:"id"`
+}
+
+type DeleteUserResponse {
+	status int `json:"status"`
+}
+
+type ModifyUserRequest {
+	id   int    `json:"id"`
+	name string `json:"name"`
+}
+
+type ModifyUserResponse {
+	status int `json:"status"`
+}
+
+@server (
+	prefix: /api/v1
+	group:  user
+)
+service user {
+	@handler ListHandler
+	get /user/list (ListUserRequest) returns (ListUserResponse)
+
+	@handler AddHandler
+	post /user/add (AddUserRequest) returns (AddUserResponse)
+
+	@handler DeleteHandler
+	delete /user/delete (DeleteUserRequest) returns (DeleteUserResponse)
+
+	@handler ModifyHandler
+	put /user/modify (ModifyUserRequest) returns (ModifyUserResponse)
+}
+

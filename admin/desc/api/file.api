@@ -1,0 +1,22 @@
+syntax = "v1"
+
+type UploadResponse {
+	status int `json:"status"`
+}
+
+type DownloadRequest {
+	file_id string `form:"file_id"`
+}
+
+@server (
+	prefix: /api/v1
+	group:  file
+)
+service user {
+	@handler UploadHandler
+	post /file/upload returns (UploadResponse)
+
+	@handler DownloadHandler
+	get /file/download (DownloadRequest)
+}
+

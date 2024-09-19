@@ -1,0 +1,36 @@
+syntax = "v1"
+
+type ListRoleRequest {}
+
+type ListRoleResponse {}
+
+type GetRoleRequest {}
+
+type GetRoleResponse {}
+
+type EditRoleRequest {}
+
+type EditRoleResponse {}
+
+type DeleteRoleRequest {}
+
+type DeleteRoleResponse {}
+
+@server (
+	prefix: /api/v1
+	group:  role
+)
+service user {
+	@handler ListHandler
+	get /role/list (ListRoleRequest) returns (ListRoleResponse)
+
+	@handler GetHandler
+	get /role/get (GetRoleRequest) returns (GetRoleResponse)
+
+	@handler EditHandler
+	post /role/edit (EditRoleRequest) returns (EditRoleResponse)
+
+	@handler DeleteHandler
+	get /role/delete (DeleteRoleRequest) returns (DeleteRoleResponse)
+}
+

@@ -1,0 +1,450 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "",
+    "version": ""
+  },
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/file/download": {
+      "get": {
+        "operationId": "DownloadHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {}
+          }
+        },
+        "parameters": [
+          {
+            "name": "file_id",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "file"
+        ]
+      }
+    },
+    "/api/v1/file/upload": {
+      "post": {
+        "operationId": "UploadHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/UploadResponse"
+            }
+          }
+        },
+        "tags": [
+          "file"
+        ]
+      }
+    },
+    "/api/v1/role/delete": {
+      "get": {
+        "operationId": "DeleteHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/DeleteRoleResponse"
+            }
+          }
+        },
+        "tags": [
+          "role"
+        ]
+      }
+    },
+    "/api/v1/role/edit": {
+      "post": {
+        "operationId": "EditHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/EditRoleResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EditRoleRequest"
+            }
+          }
+        ],
+        "tags": [
+          "role"
+        ]
+      }
+    },
+    "/api/v1/role/get": {
+      "get": {
+        "operationId": "GetHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetRoleResponse"
+            }
+          }
+        },
+        "tags": [
+          "role"
+        ]
+      }
+    },
+    "/api/v1/role/list": {
+      "get": {
+        "operationId": "ListHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ListRoleResponse"
+            }
+          }
+        },
+        "tags": [
+          "role"
+        ]
+      }
+    },
+    "/api/v1/user/add": {
+      "post": {
+        "operationId": "AddHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/AddUserResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "user"
+        ]
+      }
+    },
+    "/api/v1/user/delete": {
+      "delete": {
+        "operationId": "DeleteHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/DeleteUserResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "user"
+        ]
+      }
+    },
+    "/api/v1/user/list": {
+      "get": {
+        "operationId": "ListHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ListUserResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "description": " 第几页",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "size",
+            "description": " 每页数量",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "user"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ]
+      }
+    },
+    "/api/v1/user/modify": {
+      "put": {
+        "operationId": "ModifyHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ModifyUserResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ModifyUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "user"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "AddUserRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "AddUserRequest",
+      "required": [
+        "name"
+      ]
+    },
+    "AddUserResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "AddUserResponse",
+      "required": [
+        "status"
+      ]
+    },
+    "DeleteRoleRequest": {
+      "type": "object",
+      "title": "DeleteRoleRequest"
+    },
+    "DeleteRoleResponse": {
+      "type": "object",
+      "title": "DeleteRoleResponse"
+    },
+    "DeleteUserRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "DeleteUserRequest",
+      "required": [
+        "id"
+      ]
+    },
+    "DeleteUserResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "DeleteUserResponse",
+      "required": [
+        "status"
+      ]
+    },
+    "DownloadRequest": {
+      "type": "object",
+      "properties": {
+        "file_id": {
+          "type": "string"
+        }
+      },
+      "title": "DownloadRequest",
+      "required": [
+        "file_id"
+      ]
+    },
+    "EditRoleRequest": {
+      "type": "object",
+      "title": "EditRoleRequest"
+    },
+    "EditRoleResponse": {
+      "type": "object",
+      "title": "EditRoleResponse"
+    },
+    "GetRoleRequest": {
+      "type": "object",
+      "title": "GetRoleRequest"
+    },
+    "GetRoleResponse": {
+      "type": "object",
+      "title": "GetRoleResponse"
+    },
+    "ListRoleRequest": {
+      "type": "object",
+      "title": "ListRoleRequest"
+    },
+    "ListRoleResponse": {
+      "type": "object",
+      "title": "ListRoleResponse"
+    },
+    "ListUserRequest": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "format": "int32",
+          "description": " 第几页"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int32",
+          "description": " 每页数量"
+        }
+      },
+      "title": "ListUserRequest",
+      "required": [
+        "page",
+        "size"
+      ]
+    },
+    "ListUserResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/User"
+          }
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "ListUserResponse",
+      "required": [
+        "list",
+        "total"
+      ]
+    },
+    "ModifyUserRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "ModifyUserRequest",
+      "required": [
+        "id",
+        "name"
+      ]
+    },
+    "ModifyUserResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "ModifyUserResponse",
+      "required": [
+        "status"
+      ]
+    },
+    "UploadResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "UploadResponse",
+      "required": [
+        "status"
+      ]
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "User",
+      "required": [
+        "id",
+        "name"
+      ]
+    }
+  },
+  "securityDefinitions": {
+    "apiKey": {
+      "type": "apiKey",
+      "description": "Enter JWT Bearer token **_only_**",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}

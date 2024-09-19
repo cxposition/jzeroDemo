@@ -1,0 +1,15 @@
+zrpc:
+  listenOn: 0.0.0.0:8000
+  mode: dev
+  name: gateway.rpc
+gateway:
+  name: gateway.gw
+  port: 8001
+  upstreams:
+    - grpc:
+        endpoints:
+          - 0.0.0.0:8000
+      name: gateway.gw
+
+log:
+  encoding: plain
